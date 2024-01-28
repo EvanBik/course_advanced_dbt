@@ -1,0 +1,21 @@
+models:
+  - name: fct_events
+    description: This model tracks which events exist.
+    columns:
+      - name: session_id
+        description: The primary key for the table.
+        tests:
+          - not_null
+          - unique
+
+      - name: created_at
+        description: Timestamp.
+
+      - name: user_id
+        description: The unique identifier of the Bingeflix user.
+
+      - name: event_name
+        description: The name of the event.
+
+      - name: event_id
+        description: The unique identifier of the event.
