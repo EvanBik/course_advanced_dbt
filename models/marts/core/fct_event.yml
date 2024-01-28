@@ -3,19 +3,27 @@ models:
     description: This model tracks which events exist.
     columns:
       - name: session_id
-        description: The primary key for the table.
+        description: '{{ doc("bingeflix_column_session_id") }}'
+        tests:
+          - not_null
+
+      - name: created_at
+        description: '{{ doc("bingeflix_column_created_at") }}'
+        tests:
+          - not_null
+
+      - name: user_id
+        description: '{{ doc("bingeflix_column_user_id") }}'
+        tests:
+          - not_null
+
+      - name: event_name
+        description: '{{ doc("bingeflix_column_event_name") }}'
+        tests:
+          - not_null
+
+      - name: event_id
+        description: '{{ doc("bingeflix_column_event_id") }}'
         tests:
           - not_null
           - unique
-
-      - name: created_at
-        description: Timestamp.
-
-      - name: user_id
-        description: The unique identifier of the Bingeflix user.
-
-      - name: event_name
-        description: The name of the event.
-
-      - name: event_id
-        description: The unique identifier of the event.
