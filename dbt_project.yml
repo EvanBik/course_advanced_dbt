@@ -24,16 +24,6 @@ models:
     +materialized: view
     +grants:
       select: ['transformer', 'reporter']
-    +persist_docs:
-      relation: true
-      columns: true
-    
-    # hiding models within the staging subfolder
-    bingeflix:
-      staging:
-        +materialized: view
-        +docs:
-          node_color: "#023020"
     
     staging:
       +schema: staging
@@ -43,7 +33,6 @@ models:
 
     marts:
       core:
-        materialized: table
         +schema: core_reporting
         +docs:
           node_color: "green"
@@ -53,23 +42,16 @@ models:
         +schema: product
   
   dbt_project_evaluator:
-    marts:
-      tests:
-      +enabled: false
-    dag:
-      fct_model_fanout:
-        +enabled: false
-
-  # hiding a dbt package
-  dbt_artifacts:
     +docs:
       show: false
+
 seeds:
   dbt_project_evaluator:
     dbt_project_evaluator_exceptions:
       +enabled: false
 
 vars:
-  exclude_packages: ["/models/legacy/"] # excludes a specific package
+  dbt_project_evaluator:
+    models_fanout_threshold: 5
 
 on-run-end: "{{ dbt_project_evaluator.print_dbt_project_evaluator_issues() }}"
