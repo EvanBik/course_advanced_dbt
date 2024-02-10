@@ -1,0 +1,5 @@
+macros:
+  - name: rolling_average_7_periods
+    description: This macro allows you to calculate the average of the last 7 days.
+  - name: rolling_metric_n_periods
+    description: A macro that helps you calculate a metric for the given periods.
