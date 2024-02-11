@@ -50,6 +50,11 @@ seeds:
     dbt_project_evaluator_exceptions:
       +enabled: false
 
+    course_advanced_dbt:
+      unit_testing:
+        +schema: unit_testing
+        +tags: unit_testing
+
 vars:
   dbt_project_evaluator:
     models_fanout_threshold: 5
