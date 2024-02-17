@@ -1,0 +1,39 @@
+models:
+  - name: int_subscription_periods
+    description: This is a table containing all the information about user subscriptions.
+    columns:
+      - name: subscription_id
+        description: The id of subscription.
+        tests:
+          - unique
+          - not_null
+
+      - name: user_id
+        description: The id of user.
+        tests:
+          - not_null
+
+      - name: monthly_amount
+        description: The monthly cost of the plan.
+        tests:
+          - not_null
+
+      - name: starts_at
+        description: The origination date.
+        tests:
+          - not_null
+
+      - name: ends_at
+        description: The end date of the plan.
+        tests:
+          - not_null
+
+      - name: start_month
+        description: The starting month of the plan.
+        tests:
+          - not_null
+
+      - name: end_month
+        description: The ending month of the plan.
+        tests:
+          - not_null
